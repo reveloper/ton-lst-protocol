@@ -6,7 +6,7 @@ The main defining feature of the TON Liquid Staking protocol is independent modu
 
 TON Liquid Staking protocol participants consist of three main types. These include:
 
-<figure><img src="../.gitbook/assets/macschemes-High-level-participants.drawio.svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/macschemes (2)-High-level-participants.drawio.svg" alt=""><figcaption></figcaption></figure>
 
 _Governance_ - the most powerful nodes operating on TON Blockchain, Validators are participants that typically host their own hardware to provision their contribution to the network.
 
@@ -14,7 +14,7 @@ _Validators_ - participants with hardware for operation work.
 
 _Nominators_ - participants who desire to share their funds for the pool.
 
-<figure><img src="../.gitbook/assets/pool-3-Contract Managment.drawio (1).svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/pool-3-Contract Managment.drawio (2).svg" alt=""><figcaption></figcaption></figure>
 
 ### Governance&#x20;
 

@@ -55,28 +55,19 @@ After this, the Validator can send an application to participate in the election
 1. The Validator sends a request to the Controller to participate in the elections.
 2. If the Controller has a borrowed amount, it is added and redirected to the elector in the application.
 
-Validator Loan Repayment
+#### Validator Loan Repayment
 
 1. After the Validation cycle ends, the Elector returns the stake along with the reward to the Controller.
 2. The Controller carries out the loan repayment in a `loan_repayment` message to the Pool.
-3. When the last debt in the Pool is repaid, the round\_update() is carried out.
-
-\
+3. When the last debt in the Pool is repaid, the round\_update() is carried out.&#x20;
 
 
 
+### Optional Workflow Types
 
-####
-
-### Workflow protocol scheme&#x20;
-
-
-
-### Optional features
-
-* Optimistic deposits/withdrawals vs delayed deposits/withdrawals
-* Delayed Jettons vs NFT bills
+* Optimistic (instant) deposits/withdrawals vs Pessimistic (delayed) deposits/withdrawals
+* NFT bills vs Delayed Jettons Payouts
 * Liquidity pool Jetton DAO - governance voting
-* Governance Multisignature Wallet vs Governance DAO&#x20;
+* Governor Multisignature Wallet vs Governor DAO&#x20;
 
 ####

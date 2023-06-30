@@ -10,7 +10,9 @@ Please note, bounced messages are omitted for a better understanding of basic pr
 
 The user sends `deposit` message to Pool. Pool asks `mint` and sends Pool Jettons to Staker.
 
-<figure><img src="../.gitbook/assets/1.1-deposit-optimistic.drawio.svg" alt=""><figcaption><p>Optimistic deposit</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/pool-3-deposit-optimistic.drawio (1).svg" alt=""><figcaption></figcaption></figure>
+
+####
 
 #### 1.2 Pessimistic deposit (delayed)&#x20;
 
@@ -22,13 +24,15 @@ The user sends `deposit` message to Pool. Pool asks `mint` and sends Pool Jetton
 
 The user sends a `deposit` message to Pool. Pool requests Payout Collection NFT mint for the user a Payout NFT Item (deposit).&#x20;
 
-<figure><img src="../.gitbook/assets/macschemes (2)-deposit_pessimistic_mint.drawio.svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/macschemes (2)-deposit_pessimistic_mint.drawio (2).svg" alt=""><figcaption></figcaption></figure>
+
+
 
 The user is an owner of NFT, Pool of Payout NFT Collection.&#x20;
 
 At the end of the round, Pool inited `start distribution`, all Payouts Items burn and the user gets Pool Jettons in exchange.
 
-<figure><img src="../.gitbook/assets/macschemes (2)-deposit_pessimistic_payout_burn.drawio.svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/macschemes (2)-deposit_pessimistic_payout_burn.drawio (2).svg" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Optimistic/Pessimistic flag - global Pool config parameter&#x20;
@@ -38,23 +42,25 @@ Optimistic/Pessimistic flag - global Pool config parameter&#x20;
 
 #### 2.1 - Optimistic withdrawal (Instant)
 
-At any moment users could ask to withdraw their funds from Pool. The user asks to burn his Pool Jettons and get back TON amount including the reward.
+At any moment Staker can ask to withdraw their funds from the Pool. The Staker asks to burn his Pool Jettons and get back TON amount including the reward.
 
-If the Pool can not pay the requested sum currently Pool Jettons will be minted and returned to the User's Jetton Wallet.&#x20;
+If the Pool can not pay the requested sum currently Pool Jettons will be minted and returned to the Staker's Pool Jetton Wallet.&#x20;
 
-
-
-<figure><img src="../.gitbook/assets/new additional schemes-withdrawal-optimistic.drawio.svg" alt=""><figcaption><p>Optimistic Withdrawal (Kill_or_Fill = true)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/macschemes (2)-withdrawal_optimistic_kof.drawio (3).svg" alt=""><figcaption></figcaption></figure>
 
 #### 2.2 Pessimistic withdrawal (Delayed)&#x20;
 
 The user sends a "withdraw" message and gets Payout NFT Item (withdrawal).&#x20;
 
-<figure><img src="../.gitbook/assets/macschemes (2)-withdrawal_pessimistic_payout_mint.drawio (1).svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/macschemes (2)-withdrawal_pessimistic_payout_mint.drawio (3).svg" alt=""><figcaption></figcaption></figure>
+
+
 
 Every round `pool_update()` is launched, which leads to burning Payout NFT Items (users' Payout NFT withdrawals) and converting them to TON or Pool Jettons. TON and Pool Jettons distributed to the appropriate owner of the original NFT Payout.&#x20;
 
-<figure><img src="../.gitbook/assets/macschemes (2)-withdrawal_pessimistic_payout_burn.drawio (1).svg" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../.gitbook/assets/macschemes (2)-withdrawal_pessimistic_payout_burn.drawio (2).svg" alt=""><figcaption></figcaption></figure>
 
 If it is Pool Jetton user can ask to immediately withdraw TON in exchange for Pool Jettons he got for previous finalized validation rounds.&#x20;
 
@@ -90,7 +96,7 @@ The sender (any contract) can request the Controller return borrowed sum with `c
 
 #### &#x20;5.3 Forced repayment
 
-When a forced loan repayment is requested, the Governor sends the `return_available_funds` message to the Controller. The Controller then sends the `loan_repayment` message with the correct `value` equals to the `min(borrowed, available_funds)`.&#x20;
+When a forced loan repayment is requested, the Governor sends the `return_available_funds` message to the Controller. The Controller then sends the `loan_repayment` a message with the correct `value` equals to the `min(borrowed, available_funds)`.&#x20;
 
 If the Pool is able to find the correct borrower and value in its borrowers list, the loan is closed otherwise an error is thrown (so far the protocol has not implemented the logic for cases when the loan is not closed).
 
