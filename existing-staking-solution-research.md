@@ -44,4 +44,17 @@ In the table below we’ll look at the requirements for each TON Liquid Staking 
 
 <table><thead><tr><th width="133">Pool</th><th width="115">Voting</th><th width="123">Min deposit</th><th width="149">Liquidity</th><th>Decentralized  validation</th></tr></thead><tbody><tr><td>TON Nominator</td><td>Supported </td><td><strong>10000 TON</strong></td><td><strong>non-Liquidity</strong></td><td><strong>Absent</strong></td></tr><tr><td>TON Whales</td><td><strong>Absent</strong></td><td>50 TON</td><td><strong>non-Liquidity</strong></td><td><strong>Absent</strong></td></tr><tr><td>Bemo</td><td><strong>Absent</strong></td><td>1 TON</td><td>Liquidity supported with special stTON tokens</td><td><strong>Absent</strong></td></tr></tbody></table>
 
-##
+## Empowering Voters
+
+Currently, network updates are voted upon by validators who sign the votes using their secret keys. However, this method doesn't allow for it to be enforced solely on-chain. This process could be changed in the future, in which case the Controller code used in the pool could be updated to better align the pool's voting with the will of the stakers.
+
+Still, the Liquid Staking Pool does have mechanisms in place to incentivize alignment. Specifically, the pool's jetton, which essentially functions as a DAO jetton, has the ability to conduct polls. The poll results for a particular update have a predictable address, enabling validators who have borrowed funds from the pool to automatically ascertain the opinion of stakers on every proposal in the network. Once the stakers' opinions have been ascertained, each validator can determine whether to vote for or against the proposal. This determination is based on an algorithm that ensures the overall voting profile of all validators aligns closely with that of the stakers. Briefly, the algorithm involves:
+
+1. Ordering all loans by controller address hash and arranging them in a line.
+2. Dividing this line into two parts, 'FOR' and 'AGAINST', in proportion to the poll results.
+3. For every controller, locate the position of the median of the given controller loan.
+4. If the median of the loan falls in the 'FOR' part, the validator should vote for it, and vice versa.
+
+The approver should monitor whether validators follow this algorithm and disapprove any that do not.
+
+It's important to note that there's no 'default' voting option. For instance, if only 10% of stakers care enough to vote, with 70% voting for and 30% against a proposal, the pool's validators should vote in a ratio close to 70/30."
