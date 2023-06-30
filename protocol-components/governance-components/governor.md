@@ -2,15 +2,19 @@
 
 ### Overview
 
-_Governor_ will be a jetton-based DAO with it's own GJ: governance jetton. Optionally, the filter of outcoming messages can be added that restricts setting sudoer and other parameters.&#x20;
+Governor can be single operator wallet (or better multisignature wallet) at the start which should upon protocol settling be passed to DAO.&#x20;
+
+To protect against the hostile transfer of Governance, such transfers are executed in two steps: first governance needs to declare `governance_update_after` time (it should be after some period of time) and then Governance can be transferred after that.&#x20;
 
 
+
+### Security Policy
+
+It may be performed by a wallet, multisignature wallet, or DAO.&#x20;
 
 ### Deploy Policy
 
 Governor could be deployed in the Basechain.
-
-It may be performed by a wallet, multisignature wallet, or DAO.&#x20;
 
 ### Governance functions
 

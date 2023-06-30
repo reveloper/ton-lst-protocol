@@ -1,4 +1,4 @@
-# GET methods interfaces
+# GET Methods Interfaces
 
 ## Pool
 
@@ -13,14 +13,13 @@
 * `deposits_open?` - `bool` - whether deposits are open
 * `saved_validator_set_hash` - `uint` - last accounted validator set hash
 * `prev_round_borrowers` - `[cell, int, int, int, int, int, int]` - data of previous lending round
-*
-  * `borrowers_dict` - `dict{controller_address_hash -> (Coins, Coins)}` - list of controllers that borrowed funds, body of credit and interest payment
-  * `round_id` - `int`
-  * `active_borrowers` - `int` - number of active borrowers
-  * `borrowed` - `int` - the total amount of TON borrowed in round
-  * `expected` - `int` - the total amount of TON expected to be returned in the round end
-  * `returned` - `int` - the total amount of TON already returned in round
-  * `profit` - `int` - total profit already received in round
+* `borrowers_dict` - `dict{controller_address_hash -> (Coins, Coins)}` - list of controllers that borrowed funds, body of credit and interest payment
+* `round_id` - `int`
+* `active_borrowers` - `int` - number of active borrowers
+* `borrowed` - `int` - the total amount of TON borrowed in round
+* `expected` - `int` - the total amount of TON expected to be returned in the round end
+* `returned` - `int` - the total amount of TON already returned in round
+* `profit` - `int` - total profit already received in round
 * `current_round_borrowers` - `[cell, int, int, int, int, int, int]` - data of current lending round
 * `min_loan_per_validator` - `int` - minimal amount of TON which can be borrowed by controller
 * `max_loan_per_validator` - `int` - maximal amount of TON which can be borrowed by controller

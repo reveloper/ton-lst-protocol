@@ -2,10 +2,18 @@
 
 ### Overview
 
-Empty by default role, which is able to send arbitrary messages from arbitrary parts of the system. Can significantly upgrade the code or do minor fixes of the following components:
+While initially empty, Sudoers gain the ability to send arbitrary messages from various parts of the system.&#x20;
+
+It is a special role that is needed only in emergency situation or for critical updates. This mechanism should be used for fixing bugs and vulnerabilities. This role should be empty most of the time. There is also a quarantine after setting this role to protect against hostile transfer(expected to be 24 hours).
+
+Can significantly upgrade the code or do minor fixes of the following components of  the TON LSt protocol:
 
 * Pool smart contract&#x20;
-* Validator Controller smart contract
+* Controller smart contract
+
+### Security Policy
+
+Strict secure cold wallet, for example, Ledger.
 
 ### Deploy Policy
 

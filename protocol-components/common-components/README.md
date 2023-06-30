@@ -6,7 +6,7 @@ description: Circulation of tokens in Pool
 
 ### Overview
 
-In order to properly conduct equitable token circulation within a TON Liquid Staking liquidity pool, Governance prepares special tokens using minter smart contracts, then these tokens will be distributed and circulated between Pool participants (Governors, Validator, Nominator) according to the defined workflow in Pool. In this way, clear visibility of the distribution of funds and expected rewards will be maintained.
+In order to properly conduct equitable token circulation within a TON Liquid Staking liquidity pool, Governance prepares special tokens using minter smart contracts, then these tokens will be distributed and circulated between Pool participants (Governors, Validators, Stakers) according to the defined workflow in Pool. In this way, clear visibility of the distribution of funds and expected rewards will be maintained.
 
 ### Optimistic deposits and withdrawals
 
@@ -20,12 +20,12 @@ Given that it is possible to process deposits and withdrawals in optimistic mode
 
 #### Fill or Kill and Immediate withdrawals <a href="#fill-or-kill-and-immediate-withdrawals" id="fill-or-kill-and-immediate-withdrawals"></a>
 
-If optimistic mode is activated, withdrawals often can not be processed immediately if the pool has not enough TONs. In this case Withdrawal bill should be minted which may not be optimal for the nominator. At the same time, sometimes the nominator wants to wait till the end of the round to get profit of this round even if optimistic mode is on. To control this behavior there are two flags used in conjunction with burn requests. These are:
+If optimistic mode is activated, withdrawals often can not be processed immediately if the pool has not enough TONs. In this case Withdrawal bill should be minted which may not be optimal for the staker. At the same time, sometimes the staker wants to wait till the end of the round to get profit of this round even if optimistic mode is on. To control this behavior there are two flags used in conjunction with burn requests. These are:
 
 
 
-* `wait_till_round_end` - if `true` Withdrawal bill will be minted regardless of possibility to make immediate withdrawal
-* `fill_or_kill` - if `true` iand there is not enough TON, burn will be reverted via minting pool jettons back.
+* `wait_till_round_end` - if `true` Withdrawal bill will be minted regardless of the possibility to make an immediate withdrawal
+* `fill_or_kill` - if `true` and there is not enough TON, burn will be reverted via minting pool jettons back.
 
 
 

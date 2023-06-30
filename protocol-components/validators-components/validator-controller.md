@@ -25,11 +25,11 @@ If the controller fails to return funds (when possible) during the grace period,
 * Validator deploys Validator Controller Smart Contract with its Wallet Smart Contract.
 * &#x20;Controller contract must be deployed in masterchain.
 * The Controller address depends on `[validator, pool, governor, halter, approver]`. If any of these addresses changed (rotation of Governor for instance), the validator needs to deploy a new controller (since the old one will not pass address-based authentication).
-* The validator in most cases has two Validator Controllers (for even and odd validation rounds).
-
-`sudoer` by default is `addr_none`.
+* The validator in most cases has two Validator Controllers (for even and odd validation rounds).`sudoer` by default is `addr_none`.
 
 
+
+### Description
 
 Сontroller accounts for funds of the validator and funds borrowed from the Validation Pool. It can process deposits from Validator and from Validation Pool (later Pool). Upon request from the validator it can send a stake from it's balance to Elector. Upon request it can request withdrawal from Elector, but only after at least three updates of validator sets ([here](https://github.com/ton-blockchain/nominator-pool/blob/main/func/pool.fc#L566) is why it is necessary for the correct stake account).&#x20;
 
@@ -80,7 +80,7 @@ Validator controller can be in the following states:
 * Staked funds
 * Halted (by halter)
 
-<figure><img src="../../.gitbook/assets/pool-graphs-Validator Controller states.drawio (1).svg" alt=""><figcaption><p>Validator Controller States</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/pool-graphs-Validator Controller states.drawio.svg" alt=""><figcaption><p>Validator Controller States</p></figcaption></figure>
 
 
 

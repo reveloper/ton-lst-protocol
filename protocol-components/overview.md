@@ -36,7 +36,7 @@ Governance Individual components:
 Governor is currently represented as a Multisignature Wallet but will be implemented as DAO as well.
 {% endhint %}
 
-* Interest Manager smart contract
+* Interest Manager node
 
 ### Validators
 
