@@ -3,12 +3,12 @@
 ## What are the Purposes of the TON LSt protocol?
 
 * **Liquidity** - it is imperative to have accessibility to a liquid protocol that allows its tooling frameworks to be used for validation while also being able to serve other utilities in parallel.
-* **Composability** - Easy for using as a part of other dApps products and protocols.
-* **Decentralized** - centralized validation models imply that only validators that create a liquidity pool are able to participate. The TON Liquid Staking Protocol makes it possible to eliminate this dependency by providing a more flexible connection between Nominators (participants with funds) and Validators (participants providing hardware).
+* **Composability** - easy for using as a part of other dApps products and protocols.
+* **Decentralized** - centralized validation models imply that only validators that create a liquidity pool are able to participate. The TON LSt Protocol makes it possible to eliminate this dependency by providing a more flexible connection between Stakers and Validators.
 * **Small fish friendly** - minimize minimal staking deposits.
 * **Empowering** - allows users to have their say in the development of the network via voting power.
 * **Safe** - minimize risks of reducing funds as a result of incorrect validation work.
-* **Investor diversification** - participants with large amounts of capital are able to more easily diversify their funds.
+* **Investor diversification** - Stakers with large amounts of capital are able to more easily diversify their funds.
 
 ## Existing TON Staking Solutions
 

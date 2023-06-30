@@ -39,6 +39,8 @@ Staker is a TON holder who stakes their funds in the Pool to be used for validat
 
 
 
+### Validator Workflows
+
 #### Validator Request Loan
 
 \
@@ -53,9 +55,18 @@ After this, the Validator can send an application to participate in the election
 1. The Validator sends a request to the Controller to participate in the elections.
 2. If the Controller has a borrowed amount, it is added and redirected to the elector in the application.
 
+Validator Loan Repayment
+
+1. After the Validation cycle ends, the Elector returns the stake along with the reward to the Controller.
+2. The Controller carries out the loan repayment in a `loan_repayment` message to the Pool.
+3. When the last debt in the Pool is repaid, the round\_update() is carried out.
+
+\
 
 
-#### Loan Repayment
+
+
+####
 
 ### Workflow protocol scheme&#x20;
 

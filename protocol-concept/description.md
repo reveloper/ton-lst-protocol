@@ -14,7 +14,13 @@ The _Pool (Pool Central Contract)_ is the main driving architectural framework o
 
 The Pool Contract caters to Controllers.&#x20;
 
-_Controllers_ (_Validator Controllers_) by lending assets according to the Current Rate when a borrowing request is received. Pool manages loan process for Controllers, which using by Validators for Election without direct owning.
+_Controllers_ (_Validator Controllers_) by lending assets according to the Current Rate when a borrowing request is received.&#x20;
+
+{% hint style="info" %}
+#### Validator Election
+
+Validators participate in regular validator elections via a Controller smart contract which manages funds from the liquidity pool while ensuring that lent assets are secure.
+{% endhint %}
 
 #### Interaction with Stakers (also Users, Nominators)
 
@@ -83,12 +89,6 @@ Interest Manager can start as a simple wallet as well. However, provided that th
 #### Governor
 
 Governor can be single operator wallet (or better multisignature wallet) at the start which should upon protocol settling be passed to DAO. To protect against the hostile transfer of Governance, such transfers are executed in two steps: first governance needs to declare `governance_update_after` time (it should be after some period of time) and then Governance can be transferred after that.&#x20;
-
-{% hint style="info" %}
-#### Validator Election
-
-Validators participate in regular validator elections via a Controller smart contract which manages funds from the liquidity pool while ensuring that lent assets are secure.
-{% endhint %}
 
 ####
 

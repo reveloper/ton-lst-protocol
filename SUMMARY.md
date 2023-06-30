@@ -16,8 +16,11 @@
 
 * [Overview](protocol-components/overview.md)
 * [GET Methods Interfaces](protocol-components/get-methods-interfaces.md)
+* [Common Components](protocol-components/common-components/README.md)
+  * [Pool](protocol-components/common-components/pool.md)
+  * [Pool Jettons](protocol-components/common-components/pool-jettons.md)
+  * [Payouts](protocol-components/common-components/payouts.md)
 * [Governance Components](protocol-components/governance-components/README.md)
-  * [Pool](protocol-components/governance-components/pool.md)
   * [Governor](protocol-components/governance-components/governor.md)
   * [Sudoer](protocol-components/governance-components/sudoer.md)
   * [Halter](protocol-components/governance-components/halter.md)
@@ -27,4 +30,3 @@
   * [Validator Controller](protocol-components/validators-components/validator-controller.md)
   * [Validator Software Mytonctrl](protocol-components/validators-components/validator-software-mytonctrl.md)
 * [Nominator Components](protocol-components/nominator-components.md)
-* [Common Components](protocol-components/common-components.md)

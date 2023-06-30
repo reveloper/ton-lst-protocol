@@ -8,7 +8,7 @@ Please note, bounced messages are omitted for a better understanding of basic pr
 
 #### &#x20;1.1 Optimistic deposit (instant)
 
-The user sends `deposit` op to Pool. Pool asks mint and sends to User pTON(Pool Jettons).
+The user sends `deposit` message to Pool. Pool asks `mint` and sends Pool Jettons to Staker.
 
 <figure><img src="../.gitbook/assets/1.1-deposit-optimistic.drawio.svg" alt=""><figcaption><p>Optimistic deposit</p></figcaption></figure>
 
@@ -38,9 +38,9 @@ Optimistic/Pessimistic flag - global Pool config parameter&#x20;
 
 #### 2.1 - Optimistic withdrawal (Instant)
 
-At any moment users could ask to withdraw their funds from Pool. The user asks to burn his pTON and get back TON amount including the reward.
+At any moment users could ask to withdraw their funds from Pool. The user asks to burn his Pool Jettons and get back TON amount including the reward.
 
-If the Pool can not pay the requested sum currently pTON will be minted and returned to the User's Jetton Wallet.&#x20;
+If the Pool can not pay the requested sum currently Pool Jettons will be minted and returned to the User's Jetton Wallet.&#x20;
 
 
 
@@ -52,7 +52,7 @@ The user sends a "withdraw" message and gets Payout NFT Item (withdrawal).&#x20;
 
 <figure><img src="../.gitbook/assets/macschemes (2)-withdrawal_pessimistic_payout_mint.drawio (1).svg" alt=""><figcaption></figcaption></figure>
 
-Every round `pool_update()` is launched, which leads to burning Payout NFT Items (users' Payout NFT withdrawals) and converting them to TON or Pool Jettons. TON and pTONs distributed to the appropriate owner of the original NFT Payout.&#x20;
+Every round `pool_update()` is launched, which leads to burning Payout NFT Items (users' Payout NFT withdrawals) and converting them to TON or Pool Jettons. TON and Pool Jettons distributed to the appropriate owner of the original NFT Payout.&#x20;
 
 <figure><img src="../.gitbook/assets/macschemes (2)-withdrawal_pessimistic_payout_burn.drawio (1).svg" alt=""><figcaption></figcaption></figure>
 
