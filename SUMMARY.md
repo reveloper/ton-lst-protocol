@@ -15,6 +15,7 @@
 ## Components
 
 * [Overview](components/overview.md)
+* [GET methods interfaces](components/get-methods-interfaces.md)
 * [Governance Components](components/governance-components/README.md)
   * [Pool](components/governance-components/pool.md)
   * [Governor](components/governance-components/governor.md)

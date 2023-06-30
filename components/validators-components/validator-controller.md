@@ -80,7 +80,7 @@ Validator controller can be in the following states:
 * Staked funds
 * Halted (by halter)
 
-<figure><img src="../../.gitbook/assets/pool-graphs-Validator Controller states.drawio (1).svg" alt=""><figcaption><p>Validator Controller States</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/pool-graphs-Validator Controller states.drawio.svg" alt=""><figcaption><p>Validator Controller States</p></figcaption></figure>
 
 
 
