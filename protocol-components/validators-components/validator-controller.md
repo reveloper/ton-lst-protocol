@@ -8,7 +8,7 @@ _Validator Controller smart contract_ (also _Controller_ in the following text) 
 
 ### Basics <a href="#basics" id="basics"></a>
 
-The Controller may borrow funds from TON LS Pool while elections are open.
+The Controller may borrow funds from TON LSt Pool while elections are open.
 
 When borrowing, Controller agrees to pay a fixed premium for fund usage.
 
@@ -23,7 +23,7 @@ If the controller fails to return funds (when possible) during the grace period,
 ### Deploy policy <a href="#deploy" id="deploy"></a>
 
 * Validator deploys Validator Controller Smart Contract with its Wallet Smart Contract.
-* &#x20;Controller contract must be deployed in masterchain.
+* &#x20;The Controller contract must be deployed in the Masterchain.
 * The Controller address depends on `[validator, pool, governor, halter, approver]`. If any of these addresses changed (rotation of Governor for instance), the validator needs to deploy a new controller (since the old one will not pass address-based authentication).
 * The validator in most cases has two Validator Controllers (for even and odd validation rounds).`sudoer` by default is `addr_none`.
 
@@ -33,9 +33,9 @@ If the controller fails to return funds (when possible) during the grace period,
 
 Сontroller accounts for funds of the validator and funds borrowed from the Validation Pool. It can process deposits from Validator and from Validation Pool (later Pool). Upon request from the validator it can send a stake from it's balance to Elector. Upon request it can request withdrawal from Elector, but only after at least three updates of validator sets ([here](https://github.com/ton-blockchain/nominator-pool/blob/main/func/pool.fc#L566) is why it is necessary for the correct stake account).&#x20;
 
-Thus Controller needs the ability to count validator set updates, for that purpose there is `update_set_hash` request. Both `withdrawal` and `update_set_hash` requests can be sent by a validator or, after the grace period, by anybody. In the latter case, the sender gets a bounty out of validator funds. This functionality protects against non-responding validators.
+Thus Controller needs the ability to count validator set updates, for that purpose there is `update_set_hash` a request. Both `withdrawal` and `update_set_hash` requests can be sent by a validator or, after the grace period, by anybody. In the latter case, the sender gets a bounty out of validator funds. This functionality protects against non-responding validators.
 
-The Controller specifies maximal interest rate, and minimal and maximal TON credit size in borrow request. Validator can only request such parameters that it has interest plus recommended fine on it's balance. It can only request funds if is approved by Approver.
+The Controller specifies the maximal interest rate and minimal and maximal TON credit size in the borrow request. A validator can only request such parameters that it has interest plus recommended fine on it's balance. It can only request funds if is approved by Approver.
 
 Upon receiving stake from Elector, Сontroller sends borrowed assets plus interest to the Validation pool.
 
@@ -151,7 +151,7 @@ Validator Controller sends messages to Elector, Pool, Validator(wallet), Watchdo
 
 ### Validator duty <a href="#validator-duty" id="validator-duty"></a>
 
-1. Validator must perform `update_validator_hash` when funds are staken. If validators doesn't update it during `GRACE` period, anybody can `update_validator_hash` and get `HASH_UPDATE_FINE`. The rule is as following:
+1. Validator must perform `update_validator_hash` when funds are staken. If validators doesn't update it during `GRACE` period, anybody can `update_validator_hash` and get `HASH_UPDATE_FINE`. The rule is as follows:
 
 > If controller is in "funds staken" state, `validator_set_changes_count < 3`, `borrowed_amount > 0` and `now() - utime_since > GRACE_PERIOD`, anybody can trigger `update_validator_hash` and get reward
 
