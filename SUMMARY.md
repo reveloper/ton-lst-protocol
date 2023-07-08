@@ -1,6 +1,6 @@
 # Table of contents
 
-* [What is Liquid Staking on TON?](README.md)
+* [What is TON Liquid Staking?](README.md)
 * [Existing Staking Solution Research](existing-staking-solution-research.md)
 * [How does TON LSt protocol work?](how-does-ton-lst-protocol-work.md)
 
