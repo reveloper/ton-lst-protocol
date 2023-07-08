@@ -1,4 +1,4 @@
-# GET Methods Interfaces
+# GET Method Interfaces
 
 ## Pool
 
@@ -8,7 +8,7 @@
 * `halted` - `bool` - whether the operation of the pool is stopped. `0` means the pool is working normally
 * `total_balance` - `uint` - a sum of all TON accounted by Pool
 * `supply` - `uint` - number of issued pool jettons
-* `interest_rate` - `uint` - interest rate **per round** encoded as 16-bit number. In other words, after borrowing X TON validator need to return `X*( 65536 + interest_rate) / 65536 TON`
+* `interest_rate` - `uint` - interest rate **per round** encoded as 24-bit number. In other words, after borrowing X TON validator need to return `X*(` 2\*\*24`+ interest_rate) /` 2\*\*24`TON`
 * `optimistic_deposit_withdrawals` - `bool` - whether the optimistic (instantaneous) mode of deposit/withdrawals is on or is off
 * `deposits_open?` - `bool` - whether deposits are open
 * `saved_validator_set_hash` - `uint` - last accounted validator set hash
@@ -23,7 +23,7 @@
 * `current_round_borrowers` - `[cell, int, int, int, int, int, int]` - data of current lending round
 * `min_loan_per_validator` - `int` - minimal amount of TON which can be borrowed by controller
 * `max_loan_per_validator` - `int` - maximal amount of TON which can be borrowed by controller
-* `governance_fee` - `int` - Share of pool profit which is sent to governance encoded as 16-bit number
+* `governance_fee` - `int` - Share of pool profit which is sent to governance encoded as 24-bit number
 * `jetton_minter` - `slice` - address of pool jetton root
 * `supply` - `int` - the amount of issues pool jettons
 * `deposit_payout` - `slice | null` - address of deployed deposit payout of current round (`null` if not deployed)
@@ -47,19 +47,19 @@ The current pool jetton/TON ratio is equal to `total_balance/supply`. This ratio
 
 The projected pool jetton/TON ratio is equal to `projected_total_balance/projected_supply`. This ratio is used for immediate deposits in _optimistic_ mode.
 
-
+***
 
 `(slice) get_controller_address(int controller_id, slice validator)` - returns address of the validator controller with the given id and validator address. Note controller maybe not yet deployed.
 
-
+***
 
 `(int, int) get_controller_address_legacy(int controller_id, int wc, int addr_hash)` - the same as previous but accepts parsed validator address and returns parsed controller address
 
-
+***
 
 `(int, int) get_loan(int controller_id, slice validator_address, int prev?)` - return loan body and load interest for a given controller
 
-
+***
 
 `(int, int) get_controller_loan_position(int controller_addr_hash, int prev?)` - We order all loans by controller address hash, put them in line and find a position of median of the given controller loan. This data can be used for deterministic voting: if stakers decide to vote in some proportion, we can check that controllers voted in the same proportion. Returns numerator and denominator.
 
