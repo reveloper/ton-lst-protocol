@@ -15,9 +15,9 @@
 ## Protocol Components
 
 * [Overview](protocol-components/overview.md)
-* [GET Methods Interfaces](protocol-components/get-methods-interfaces.md)
+* [GET Method Interfaces](protocol-components/get-method-interfaces.md)
 * [Common Components](protocol-components/common-components/README.md)
-  * [Pool](protocol-components/common-components/pool.md)
+  * [Pools](protocol-components/common-components/pools.md)
   * [Pool Jettons](protocol-components/common-components/pool-jettons.md)
   * [Payouts](protocol-components/common-components/payouts.md)
 * [Governance Components](protocol-components/governance-components/README.md)

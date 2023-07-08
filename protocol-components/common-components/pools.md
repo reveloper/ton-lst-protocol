@@ -1,26 +1,28 @@
-# Pool
+# Pools
 
 ### Deploy Policy <a href="#deploy" id="deploy"></a>
 
-* The _Pool_ smart contract could be deployed by anybody (any participant of TON Network_)._
-* _The Pool could be deployed in the Basechain._
-* The _Pool Jetton minter smart contract_ is deployed separately.&#x20;
+* Pool smart contracts can be deployed by anyone using the TON Network
+* Pool smart contracts can be deployed in the Basechain
+* The _Pool Jetton minter_ smart contracts are deployed separately
 * Pool deploys _Payout minters_ and initiates them.&#x20;
 * The address of _Pool Jetton Wallet smart contract_ for deposit payout is calculated on Pool and passed to Deposit Payout in init message.
 
 ### **Security Policy**
 
 * The pool smart contract could be stopped(paused) with Halter.
-* Pool Smart Contract could be manually restored after it was stopped by Governance.
+* Pool Smart Contract could be manually restored after it was stopped by Governance via Governor.
 
 ### Pool Workflow
 
-* Interact with controllers
+The staking pool workflow makes use of several participants that allow the system to work correctly at all times. The sequential ordered system is conducted as follows:
+
+* Interact with Controllers
   1. Lends assets to Сontrollers upon borrow request from **Сontroller** in accordance to _Current Rate_
   2. Receives assets and aggregates profit/loss information from **Сontrollers**
-* Interaction with stakers (Nominators)
+* Interaction with Stakers&#x20;
   3. manages deposits and withdrawals
-* Interact with Interest Manager:
+* Interaction with Interest Manager:
   4. sends aggregate lending round statistics
   5. updates interest upon request from Interest Manager
 * Interact with Governor:
