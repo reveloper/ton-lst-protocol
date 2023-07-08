@@ -78,6 +78,8 @@ Interest Manager can start as a simple wallet as well. However, provided that th
 
 #### Governor
 
+Governors represent the protocol’s main DAO governance contract used to set and manage the other governance components (this process is provisioned through TON token governance voting).
+
 Governor can be single operator wallet (or better multisignature wallet) at the start which should upon protocol settling be passed to DAO.&#x20;
 
 To protect against the hostile transfer of Governance, such transfers are executed in two steps: first governance needs to declare `governance_update_after` time (it should be after some period of time) and then Governance can be transferred after that.&#x20;
