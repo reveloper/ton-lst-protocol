@@ -38,7 +38,7 @@ At the end of the round, Pool inited `start distribution`, all Payouts Items bur
 Optimistic/Pessimistic flag - global Pool config parameter&#x20;
 {% endhint %}
 
-### 2 - Withdraw
+### 2 - Withdrawals
 
 #### 2.1 - Optimistic withdrawal (Instant)
 
@@ -82,7 +82,7 @@ A Validator sends a `new_stake` request to a Controller, the Controller sends a 
 
 #### 5.1 Regular repayment
 
-When a regular loan repayment is requested, the Elector sends the recover\_stake\_ok request to the Controller. The Controller then sends a pool::loan\_repayment message with the value = to the MIN\_TONS\_FOR\_STORAGE + the borrowed\_amount.
+When a regular loan repayment is requested, the Elector sends the `recover_stake_ok` request to the Controller. The Controller then sends a `pool::loan_repayment` message with a value equal to the `MIN_TONS_FOR_STORAGE` added with the borrowed\_amount.
 
 <figure><img src="../.gitbook/assets/pool-3-loan repayment elector.drawio (1).svg" alt=""><figcaption></figcaption></figure>
 
