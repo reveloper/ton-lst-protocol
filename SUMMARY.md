@@ -29,4 +29,4 @@
 * [Validators Components](protocol-components/validators-components/README.md)
   * [Validator Controller](protocol-components/validators-components/validator-controller.md)
   * [Validator Software Mytonctrl](protocol-components/validators-components/validator-software-mytonctrl.md)
-* [Nominator Components](protocol-components/nominator-components.md)
+* [Staker Components](protocol-components/staker-components.md)
