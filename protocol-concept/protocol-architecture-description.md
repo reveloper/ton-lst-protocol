@@ -1,4 +1,4 @@
-# Description
+# Protocol Architecture Description
 
 ### Introduction
 
@@ -12,9 +12,7 @@ The _Pool (Pool Central Contract)_ is the main driving architectural framework o
 
 #### Interaction with Controllers
 
-The Pool Contract caters to Controllers.&#x20;
-
-_Controllers_ (_Validator Controllers_) by lending assets according to the Current Rate when a borrowing request is received.&#x20;
+The Pool Contract caters to Controllers (_Validator Controllers_) by lending assets according to the current Interest Rate when a borrowing request is received.&#x20;
 
 {% hint style="info" %}
 #### Validator Election
@@ -26,7 +24,7 @@ Validators participate in regular validator elections via a Controller smart con
 
 _Stakers_ represent regular users - holders of TON funds. The Pool contract is designed to safely manage Stakers' deposits and withdrawals.
 
-#### Interaction with Interest Manager
+#### Interaction with Interest Managers
 
 The Pool is continuously connected with the Interest Manager and helps provision important data for the protocol.&#x20;
 
@@ -36,19 +34,11 @@ The _Interest Manager_ dispatches aggregate lending statistics and modifies inte
 
 #### Interaction with Governor
 
-Governor helps provide equitable governance of the TON LSt Protocol. Because of this fact, Governor is in continuous communication with the Pool Central Contract.&#x20;
+Governor helps provide equitable Governance of the TON LSt Protocol. Because of this fact, Governor is in continuous communication with the Pool Central Contract.&#x20;
 
-To provision the equitability of the liquid staking protocol, TONs Decentralized Autonomous Organization (DAO) helps decide key parameters (such as setting protocol fees, interest rates, and more) through governance voting. This framework leverages the voting power of governance token (jetton) holders to make protocol and ecosystem decisions based on voting weight.&#x20;
+To provision the equitability of the liquid staking protocol, Governance DAO helps decide key parameters (such as setting protocol fees, interest rates, and more) through governance voting. This framework leverages the voting power of governance token ((jetton, but not Pool Jetton)) holders to make protocol and ecosystem decisions based on voting weight.&#x20;
 
 
-
-{% hint style="info" %}
-To provision the equitability of the liquid staking protocol, TONs Decentralized Autonomous Organization (DAO) helps decide key parameters (such as setting protocol fees, interest rates, and more) through governance voting. This framework leverages the voting power of governance token (jetton) holders to make protocol and ecosystem decisions based on voting weight.&#x20;
-
-The DAO also accumulates service fees from Stakers which are used to allocate funds towards protocol research, protocol and ecosystem development, liquidity incentives, and protocol upgrades.
-
-Voting with special jettons of LSD.
-{% endhint %}
 
 ### Pool Jettons
 
@@ -88,9 +78,9 @@ Interest Manager can start as a simple wallet as well. However, provided that th
 
 #### Governor
 
-Governor can be single operator wallet (or better multisignature wallet) at the start which should upon protocol settling be passed to DAO. To protect against the hostile transfer of Governance, such transfers are executed in two steps: first governance needs to declare `governance_update_after` time (it should be after some period of time) and then Governance can be transferred after that.&#x20;
+Governor can be single operator wallet (or better multisignature wallet) at the start which should upon protocol settling be passed to DAO.&#x20;
 
-####
+To protect against the hostile transfer of Governance, such transfers are executed in two steps: first governance needs to declare `governance_update_after` time (it should be after some period of time) and then Governance can be transferred after that.&#x20;
 
 
 

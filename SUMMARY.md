@@ -7,7 +7,7 @@
 ## Protocol Concept
 
 * [Protocol Architecture Terms](protocol-concept/protocol-architecture-terms.md)
-* [Description](protocol-concept/description.md)
+* [Protocol Architecture Description](protocol-concept/protocol-architecture-description.md)
 * [Protocol Workflows](protocol-concept/protocol-workflows.md)
 * [Message Processing](protocol-concept/message-processing.md)
 * [Potential Risks](protocol-concept/potential-risks.md)

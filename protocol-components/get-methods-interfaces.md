@@ -47,19 +47,19 @@ The current pool jetton/TON ratio is equal to `total_balance/supply`. This ratio
 
 The projected pool jetton/TON ratio is equal to `projected_total_balance/projected_supply`. This ratio is used for immediate deposits in _optimistic_ mode.
 
-***
+
 
 `(slice) get_controller_address(int controller_id, slice validator)` - returns address of the validator controller with the given id and validator address. Note controller maybe not yet deployed.
 
-***
+
 
 `(int, int) get_controller_address_legacy(int controller_id, int wc, int addr_hash)` - the same as previous but accepts parsed validator address and returns parsed controller address
 
-***
+
 
 `(int, int) get_loan(int controller_id, slice validator_address, int prev?)` - return loan body and load interest for a given controller
 
-***
+
 
 `(int, int) get_controller_loan_position(int controller_addr_hash, int prev?)` - We order all loans by controller address hash, put them in line and find a position of median of the given controller loan. This data can be used for deterministic voting: if stakers decide to vote in some proportion, we can check that controllers voted in the same proportion. Returns numerator and denominator.
 
