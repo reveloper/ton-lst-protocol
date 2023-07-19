@@ -26,15 +26,10 @@ Governance consists of the following components within the Protocol:
 
 Governance components(Roles):
 
-* Governor smart contract
-* Sudoer smart contract
-* Halter smart contract
-* Governor Multisignature Wallet or Governor DAO (optional)
-
-{% hint style="info" %}
-Governor is currently represented as a Multisignature Wallet but will be implemented as DAO as well.
-{% endhint %}
-
+* Governor&#x20;
+* Sudoer
+* Halter
+* Governor
 * Interest Manager&#x20;
 
 ### Validators
@@ -43,8 +38,8 @@ Validators are the most powerful nodes operating on the TON Network. Their main 
 
 Validators are represented by with following components of the Protocol:
 
-* _Wallet smart contract_ (basic Ecosystem component) owned by Validator with a Private Key
-* _Validator Controller smart contract_
+* _Wallet_ (basic Ecosystem component owned by Validator with a Private Key)
+* _Validator Controller_
 * _Validator hardware and software (mytoncntrl)_
 
 ### Stakers
@@ -53,14 +48,14 @@ Users of Ecosystem which provides their funds in pools.
 
 This group supports with following components of the Protocol:
 
-* _Wallet_ Smart Contract (basic Ecosystem component) owned by User with a Private Key
+* _Wallet_ (basic Ecosystem component owned by Staker with a Private Key)
 
 
 
 ### Common Components
 
-* _Pool smart contract_ - central smart contract, which handles the whole TON LSt protocol workflow within other components.
-* _Pool Jetton minter smart contract_ -  Pool Jetton master contract owned by Pool that manages minting Jetton Pool amounts for users when it requested by Pool contract.
-* _Payouts Collection smart contract_ - Special NFT Collection contract for delayed deposit/withdrawal processing owned by Pool. There are two minters - one for Withdrawals, and one for Deposits.
-* _Pool Jetton Wallet smart contract_ -  a liquid staking collateralized receipt token that is fully exchangeable for TON and represented by a Jetton Wallet Smart Contracts&#x20;
+* _Pool_ - central smart contract, which handles the whole TON LSt protocol workflow within other components.
+* _Pool Jetton Minter_ -  Pool Jetton master contract owned by Pool that manages minting Jetton Pool amounts for users when it requested by Pool contract.
+* _Payouts Collection_ - Special NFT Collection contract for delayed deposit/withdrawal processing owned by Pool. There are two minters - one for Withdrawals, and one for Deposits.
+* _Pool Jetton Wallet_ -  a liquid staking collateralized receipt token that is fully exchangeable for TON and represented by a Jetton Wallet Smart Contracts&#x20;
 * _Payouts_ - Special tokens (as main version - NFT items), that are used for processing delayed payouts: deposits or withdrawals which will be processed at the end of the current round.
