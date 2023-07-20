@@ -1,94 +1,80 @@
 # Pools
 
-### Deploy Policy <a href="#deploy" id="deploy"></a>
+### Deployment Policy <a href="#deploy" id="deploy"></a>
 
 * Pool smart contracts can be deployed by anyone using the TON Network
 * Pool smart contracts can be deployed in the Basechain
 * The _Pool Jetton minter_ smart contracts are deployed separately
 * Pool deploys _Payout minters_ and initiates them.&#x20;
-* The address of _Pool Jetton Wallet smart contract_ for deposit payout is calculated on Pool and passed to Deposit Payout in init message.
+* The address of _Pool Jetton wallet_ smart contract for deposit payout is calculated on Pool and passed to Deposit Payout in init message.
 
 ### **Security Policy**
 
-* The pool smart contract could be stopped(paused) with Halter.
+* The Pool smart contract could be stopped(paused) with Halter.
 * Pool Smart Contract could be manually restored after it was stopped by Governance via Governor.
 
 ### Pool Workflow
 
 The staking pool workflow makes use of several participants that allow the system to work correctly at all times. The sequential ordered system is conducted as follows:
 
-* Interact with Controllers
-  1. Lends assets to Сontrollers upon borrow request from **Сontroller** in accordance to _Current Rate_
-  2. Receives assets and aggregates profit/loss information from **Сontrollers**
-* Interaction with Stakers&#x20;
-  3. manages deposits and withdrawals
-* Interaction with Interest Manager:
-  4. sends aggregate lending round statistics
-  5. updates interest upon request from Interest Manager
-* Interact with Governor:
-  6. sends profits share
-  7. updates parameters upon request: deposit params (open?, optimistic?), roles (halter, sudoer, interest\_manager, governor), state (unhalt).
 
-### Pool functions
 
-**Controller part**
+#### General workflow
 
-Process lending requests from Validator Approvals: send funds if there are enough funds and request fits rate and limits. Saves to _active controller list_ (it is expected that there will be no more than hundreds of those).
+<table><thead><tr><th width="148">Interraction</th><th>Action</th></tr></thead><tbody><tr><td>Controller - Pool </td><td> Assets are lent to a Сontroller upon receiving a borrow request in accordance with the current lending rate</td></tr><tr><td>Controller - Pool  </td><td>Assets are received and the correct profit/loss data is aggregated through a Сontroller</td></tr><tr><td>Staker - Pool </td><td>Manages deposits and withdrawals</td></tr><tr><td>Interest Manager - Pool</td><td>Sends aggregate lending round statistics </td></tr><tr><td>Interest Manager - Pool</td><td>Updates interest upon request from Interest Manager (each round)</td></tr><tr><td>Interest Manager - Pool</td><td>Interest Manager sends round profits share</td></tr><tr><td>Governor - Pool</td><td>Governors update specific parameters when requested:<br>deposit params (open?, optimistic?), roles (halter, sudoer, interest_manager, governor), state (unhalt)</td></tr></tbody></table>
 
-Receives debt repayment from Validator Controlers: remove them from the list of _active controllers_
 
-Account for fees: send governance fee to the Governance.
 
-Aggregates profit/loss data for each round, ratio of Pool Jetton_/_TON, sends stats to Interest Manager
+**Validators interaction workflow**
 
-**User part**
+* Processing lending requests from Validator approvals whereby there is enough capital available and the request is commensurate with the desired rate and funding limit. Saves to the _list_ _of_ _active controllers_ (it is expected that there will be no more than hundreds of those).
+* Receiving debt repayments from Validator Controllers (which removes them from the _list of active controllers_).
+* Account for fees: send governance fee to the Governance.
+* Aggregate profit and loss data for each consensus round (denominated using the Pool Jetton/TON ratio) and send the corresponding data to Interest Managers.
 
-Keep track of the ratio of Pool Jetton/TON.
+**Stakers interaction workflow**
 
-Receives deposits from nominators and mints _Deposit_/_Pool Jetton_ for them.
-
-Receives Pool Jetton burns notifications (withdrawal requests) from nominators' wallets and mints _Withdrawal_/_TON_ for them or revert burn.
-
-Keep track of sums of the **current round** payouts (Withdrawals/Deposits).
+* The pool keeps track of the ratio of Pool Jetton/TON.
+* Receiving deposits from Stakers and minting deposits and Pool Jettons on their behalf.
+* Receiving Pool Jettons burn notifications (withdrawal requests) from Stakers wallets and minting Stakers wallet withdrawals (of TON) or reverting Pool Jettons burns.
+* Keeping track of current round Payout overall sums (for Withdrawals and Deposits).
 
 On aggregation event (lending round end):
 
-* mints pool jetton to _Deposit Payout_ minter for distribution
-* sends TONs to _Withdrawal Payout_ minter to fulfill withdrawals
+* minting Pool Jetton through Pool Jetton minter and pass them to _Deposit Payout_ minter to carry out the distribution
+* sending TON to the _Withdrawal Payout_ minter to fulfill withdrawals
 
 ### Message Processing
 
 #### Handlers of incoming messages
 
 * borrow request (only from Сontroller)
-* Governance requests (from Governance, Halter, Sudoer)
-* debt repayment (only from Controller in _active controller list_)
+* Governance requests (from Governors, Halter, Sudoer)
+* debt repayment (only from Controller in the _active controller list_)
 * deposits (from any user)
-* burn notifications (from pool jetton wallets) bounces
+* burn notifications (from Pool Jetton wallets) bounces
 
 #### Outcoming messages:
 
-* deposit to controller (to Controller, insert into _active controller list_)
-* aggregated profit notification (to Interest Manager)
-* Fees to Governance
-* mint pool jetton (to Deposit Payout and nominator)
-* TONs (to Withdrawal Payout and nominator)
-
-<figure><img src="../../.gitbook/assets/pool-graphs-Pool Process.drawio.svg" alt=""><figcaption><p>Pool internal message processing(temporary version)</p></figcaption></figure>
+* deposits sent via a Controlle (which are inserted into an active controller list)
+* aggregates profit notifications (to Interest Managers)
+* fees that are paid to contribute to protocol Governance
+* minting Pool Jettons (which are sent to a Deposit Payout and Nominator)
+* sending TON (which are sent to a Withdrawal Payout and Nominator)
 
 
 
 ### Storage <a href="#storage" id="storage"></a>
 
 * `state`
-* `total_balance` - amount of TONs accounted when deposit, withdraw and profit
-* `interest_rate` - surplus of credit that should be returned with credit body. Set as integer equal share of credit volume times 2\*\*24
-* `optimistic_deposit_withdrawals?` - flag notifies whether optimistic mode is enabled
-* `deposits_open?` - flag notifies whether deposits are open
-* `current_round_borrowers` - Current _round\_data_
+* `total_balance` - The current total balance of TON. It is updated whenever deposits, withdrawals, or profit executions occur.
+* `interest_rate` - surplus of credit that should be returned with credit body. Set as integer equal share of credit volume multiplied by 2\*\*24
+* `optimistic_deposit_withdrawals?` - flag declares whether optimistic deposit and withdrawal mode is enabled
+* `deposits_open?` - flag declares whether deposits are open
+* `current_round_borrowers` - current _round\_data_
   * `borrowers` - dict of borrowers: `controller_address -> borrowed_amount`
   * `round_id`
-  * `active_borrowers` - number of borrowers that didn't return loan yet
+  * `active_borrowers` - number of borrowers that haven’t returned a loan yet
   * `borrowed` - amount of borrowed TON (no interest)
   * `expected` - amount of TON expected to be returned (`borrowed + interest`)
   * `returned` - amount of already returned TON
@@ -96,10 +82,10 @@ On aggregation event (lending round end):
 * `prev_round_borrowers` - Previous _round\_data_
   * `borrowers` - dict of borrowers: `controller_address -> borrowed_amount`
   * `round_id`
-  * `active_borrowers` - number of borrowers that didn't return loan yet
+  * `active_borrowers` - number of borrowers that haven’t returned a loan yet
   * `borrowed` - amount of borrowed TON (no interest)
   * `expected` - amount of TON expected to be returned (`borrowed + interest`)
-  * `returned` - amount of already returned TON
+  * `returned` - amount of TON already returned
   * `profit` - currently obtained profit (at the end of the round should be equal to `returned-borrowed` and `expected-borrowed`)
 * `min_loan_per_validator` - minimal loan volume per validator
 * `max_loan_per_validator` - maximal loan volume per validator
@@ -117,10 +103,10 @@ On aggregation event (lending round end):
   * interest manager
   * halter
   * approver
-* **Codes** - a code of child contracts needed either for deployment or for address authorization
+* **Codes** - a code of child contracts needed for deployment or address authorization
   * `controller_code` - needed for controller authorization
-  * `payout_code` - needed for Deposit/Withdrawal payouts deployment
-  * `pool_jetton_wallet_code` - needed for calculation of address of Deposit Payout wallet
+  * `payout_code` - needed for Deposit and Withdrawal Payout deployment
+  * `pool_jetton_wallet_code` - needed to calculate the Deposit Payout wallet address
 
 ### &#x20;<a href="#deploy" id="deploy"></a>
 

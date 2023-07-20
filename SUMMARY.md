@@ -4,13 +4,13 @@
 * [Existing Staking Solution Research](existing-staking-solution-research.md)
 * [How does TON LSt protocol work?](how-does-ton-lst-protocol-work.md)
 
-## Protocol Concept
+## Protocol Concepts
 
-* [Protocol Architecture Terms](protocol-concept/protocol-architecture-terms.md)
-* [Protocol Architecture Description](protocol-concept/protocol-architecture-description.md)
-* [Protocol Workflows](protocol-concept/protocol-workflows.md)
-* [Message Processing](protocol-concept/message-processing.md)
-* [Potential Risks](protocol-concept/potential-risks.md)
+* [Protocol Architecture Terms](protocol-concepts/protocol-architecture-terms.md)
+* [Protocol Architecture Description](protocol-concepts/protocol-architecture-description.md)
+* [Protocol Workflows](protocol-concepts/protocol-workflows.md)
+* [Message Processing](protocol-concepts/message-processing.md)
+* [Potential Risks](protocol-concepts/potential-risks.md)
 
 ## Protocol Components
 
@@ -26,7 +26,7 @@
   * [Halter](protocol-components/governance-components/halter.md)
   * [Interest Manager](protocol-components/governance-components/interest-manager.md)
   * [Approver](protocol-components/governance-components/approver.md)
-* [Validators Components](protocol-components/validators-components/README.md)
-  * [Validator Controller](protocol-components/validators-components/validator-controller.md)
-  * [Validator Software Mytonctrl](protocol-components/validators-components/validator-software-mytonctrl.md)
+* [Validator Components](protocol-components/validator-components/README.md)
+  * [Controller](protocol-components/validator-components/controller.md)
+  * [Validator Software Mytonctrl](protocol-components/validator-components/validator-software-mytonctrl.md)
 * [Stakers Components](protocol-components/stakers-components.md)

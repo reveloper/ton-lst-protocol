@@ -10,3 +10,9 @@ Pool Jetton -  is a jetton that is used to manage and track assets lent to the p
 
 Special TON token equivalent for liquid staking that gives users for staked TON in the liquid staking pool. User can claim their reward in TON equivalent at any moment. Over time, the price of Pool Jetton grows relative to the cost of native TON, which acts as a motivation for holding tokens for a long time. This behavior(growing of the stTON price) is provided by the borrowing features in the TON LS Pool. The borrowing process is (lending funds from Pool for Election and Validation cycle) defines in Validator Controller smart contract.
 
+
+
+### Deployment Policy <a href="#deploy" id="deploy"></a>
+
+* Pool Jetton Minter smart contracts must be deployed by Pool contract
+* Pool Jetton smart contracts can be deployed in the Basechain

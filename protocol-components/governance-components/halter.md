@@ -6,13 +6,12 @@ Halters act as an emergency safeguard for the TON Liquid Staking protocol and ar
 
 It is a role, which needs to be a hot wallet (private key stored in memory). It is a special role needed only during initial deployment while audits and practice still didn't prove 100% safety. In the long run, this role should be disembodied.&#x20;
 
-For instance, halter scans blockchain and analyzes the work of the arbitrary pool, and validators work with it.&#x20;
-
 
 
 ### Security Policy
 
-Could be used with a Hot wallet (non-custodial wallet).
+* Could be used with a Hot wallet (non-custodial wallet) for Pool preparation stage.
+* Disembodied with the public production release of the Pool.
 
 ### Deploy Policy
 
