@@ -1,12 +1,12 @@
 # Governance Components
 
-Governance makes use of the following components:
+The Governance structure on the LSt Protocol makes use of several smart contract systems. These include:
 
-* Governor
-* Sudoer
-* Halter
-* Interest Manager
-* Approver
+* [Governor](governor.md)
+* [Sudoer](sudoer.md)
+* [Halter](halter.md)
+* [Interest Manager](interest-manager.md)
+* [Approver](approver.md)
 * Governance DAO (optional Smart Contract, will be defined later)
 
 

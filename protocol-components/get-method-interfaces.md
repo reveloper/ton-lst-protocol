@@ -2,18 +2,18 @@
 
 ## Pool
 
-`var get_pool_full_data()` - return full Jetton Pool data (note, method depends on network configs and may not work via LS)
+`var get_pool_full_data()` - returns full Pool Jetton data (note, method depends on network configs and may not work via Liteserver)
 
 * `state` - `uint8` - internal state of the pool. Normal ones is `0`.
 * `halted` - `bool` - whether the operation of the pool is stopped. `0` means the pool is working normally
 * `total_balance` - `uint` - a sum of all TON accounted by Pool
-* `supply` - `uint` - number of issued pool jettons
+* `supply` - `uint` - number of issued Pool Jettons
 * `interest_rate` - `uint` - interest rate **per round** encoded as 24-bit number. In other words, after borrowing X TON validator need to return `X*(` 2\*\*24`+ interest_rate) /` 2\*\*24`TON`
 * `optimistic_deposit_withdrawals` - `bool` - whether the optimistic (instantaneous) mode of deposit/withdrawals is on or is off
 * `deposits_open?` - `bool` - whether deposits are open
 * `saved_validator_set_hash` - `uint` - last accounted validator set hash
 * `prev_round_borrowers` - `[cell, int, int, int, int, int, int]` - data of previous lending round
-* `borrowers_dict` - `dict{controller_address_hash -> (Coins, Coins)}` - list of controllers that borrowed funds, body of credit and interest payment
+* `borrowers_dict` - `dict{controller_address_hash -> (Coins, Coins)}` - list of Controllers that borrowed funds, body of credit and interest payment
 * `round_id` - `int`
 * `active_borrowers` - `int` - number of active borrowers
 * `borrowed` - `int` - the total amount of TON borrowed in round
@@ -21,25 +21,25 @@
 * `returned` - `int` - the total amount of TON already returned in round
 * `profit` - `int` - total profit already received in round
 * `current_round_borrowers` - `[cell, int, int, int, int, int, int]` - data of current lending round
-* `min_loan_per_validator` - `int` - minimal amount of TON which can be borrowed by controller
-* `max_loan_per_validator` - `int` - maximal amount of TON which can be borrowed by controller
+* `min_loan_per_validator` - `int` - minimal amount of TON that can be borrowed by a Controller
+* `max_loan_per_validator` - `int` - maximal amount of TON that can be borrowed by a Controller
 * `governance_fee` - `int` - Share of pool profit which is sent to governance encoded as 24-bit number
-* `jetton_minter` - `slice` - address of pool jetton root
-* `supply` - `int` - the amount of issues pool jettons
-* `deposit_payout` - `slice | null` - address of deployed deposit payout of current round (`null` if not deployed)
+* `jetton_minter` - `slice` - address of Pool Jetton root
+* `supply` - `int` - the amount of issues Pool Jettons
+* `deposit_payout` - `slice | null` - address of deployed Deposit Payout (collection or minter) of current round (`null` if not deployed)
 * `requested_for_deposit` - `int` - amount of TON requested for postponed (till the end of the round) deposit in this round
-* `withdrawal_payout` - `slice | null` - address of deployed withdrawal payout of current round (`null` if not deployed)
-* `requested_for_withdrawal` - `int` - the amount of pool jettons requested for postponed (till the end of the round) deposit in this round
+* `withdrawal_payout` - `slice | null` - address of deployed Withdrawal Payout (collection or minter) of current round (`null` if not deployed)
+* `requested_for_withdrawal` - `int` - the amount of Pool Jettons requested for postponed (till the end of the round) deposit in this round
 * `sudoer` - `slice | addr_none` - address of sudoer role (`addr_none` by default)
 * `sudoer_set_at` - `int` - timestamp when sudoer was set (quarantine is counted from this date)
-* `governor` - `slice` - address of governor role
-* `governance_update_after` - `int` - timestamp after which governor can be updated
+* `governor` - `slice` - address of Governor role
+* `governance_update_after` - `int` - timestamp after which Governor can be updated
 * `interest_manager` - `slice` - address of interest manager role
-* `halter` - `slice` - address of halter role
-* `approver` - `slice` - address of approver role
-* `controller_code` - `cell` - code of controller
-* `pool_jetton_wallet_code` - `cell` - code of pool jetton wallet
-* `payout_minter_code` - `cell` - code of payout
+* `halter` - `slice` - address of Halter role
+* `approver` - `slice` - address of Approver role
+* `controller_code` - `cell` - code of Controller
+* `pool_jetton_wallet_code` - `cell` - code of Pool Jetton wallet
+* `payout_minter_code` - `cell` - code of Payout
 * `projected_total_balance` - `int` - the amount of TON expected to be accounted by the Pool at the end of the round
 * `projected_supply` - `int` - number of expected issued pool jettons at the end of the round
 
