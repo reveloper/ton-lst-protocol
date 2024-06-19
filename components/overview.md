@@ -2,7 +2,7 @@
 
 The main defining feature of the TON Liquid Staking protocol is independent modularity (encapsulation) that separates the functionality of the platform into independent interchangeable modules. This allows engineers to develop, test, and update each module individually as needed. Relatedly, the prevalence of basic independent modules allows for the assembly of the protocol in different ways for various tasks and utilities.
 
-### Participants groups
+### Participants Groups
 
 TON Liquid Staking protocol participants consist of three main types. These include:
 
